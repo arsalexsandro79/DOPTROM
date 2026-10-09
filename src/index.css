@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom styles */
 * {
   box-sizing: border-box;
 }
@@ -13,7 +12,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Signature canvas cursor */
 canvas {
   touch-action: none;
 }
@@ -23,33 +21,35 @@ canvas {
   header,
   footer,
   button,
-  nav {
+  nav,
+  .no-print {
     display: none !important;
   }
 
   body {
     background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   #formal-document {
     box-shadow: none !important;
     border: 2px solid #333 !important;
     page-break-inside: avoid;
+    margin: 0 !important;
+    max-width: 100% !important;
   }
 
   .min-h-screen {
     min-height: auto !important;
   }
+
+  main {
+    padding: 0 !important;
+  }
 }
 
-/* Smooth transitions */
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
-}
-
-/* Custom scrollbar */
+/* Smooth scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -67,16 +67,12 @@ canvas {
   background: #64748b;
 }
 
-/* Animation for processing */
-@keyframes pulse-border {
-  0%, 100% {
-    border-color: #3b82f6;
-  }
-  50% {
-    border-color: #93c5fd;
-  }
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-pulse-border {
-  animation: pulse-border 2s ease-in-out infinite;
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
 }
